@@ -6,8 +6,18 @@ export const mutations = {
     state.token = token
     setToken(token)
   },
-  miniAdminSidebar(state) {
-    state.openAdminSidebar = !state.openAdminSidebar
+  toggleSizeSidebar(state) {
+    state.adminSidebar.isMini = !state.adminSidebar.isMini
+  },
+  toggleDevice: (state, device) => {
+    state.device = device
+  },
+  closeAdminSideBar: (state, animate) => {
+    state.adminSidebar.opened = false
+    state.adminSidebar.animate = animate
+  },
+  openAdminSidebar: (state) => {
+    state.adminSidebar.opened = true
   }
 }
 
@@ -31,12 +41,20 @@ export const actions = {
 
 export const state = () => ({
   token: '',
-  openAdminSidebar: true
+  openAdminSidebar: true,
+  adminSidebar: {
+    opened: true,
+    isMini: false,
+    animation: true
+  },
+  device: ''
 })
 
 export const getters = {
   token: (state) => {
     return state.token
   },
-  openAdminSidebar: state => state.openAdminSidebar
+  openAdminSidebar: state => state.openAdminSidebar,
+  adminSidebar: state => state.adminSidebar,
+  device: state => state.device
 }
