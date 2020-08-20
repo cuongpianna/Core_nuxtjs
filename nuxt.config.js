@@ -29,6 +29,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/main.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -36,7 +37,9 @@ export default {
   */
   plugins: [
     '~/plugins/router',
-    '~/plugins/axios'
+    '~/plugins/axios',
+    '~/plugins/material',
+    '~/plugins/font-awoesome',
   ],
   /*
   ** Auto import components
