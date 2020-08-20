@@ -10,9 +10,9 @@ import { mapMutations } from 'vuex'
 export default {
   name: 'AdminHeader',
   methods: {
-    ...mapMutations(['miniAdminSidebar']),
+    ...mapMutations(['toggleSizeSidebar']),
     miniSideBar() {
-      this.miniAdminSidebar()
+      this.toggleSizeSidebar()
     }
   }
 }
@@ -25,7 +25,7 @@ export default {
   transform: translateY(0px);
   left: 256px;
   right: 0px;
-  background: #272727;
+  background: #35475e;
   flex: 1 1 auto;
   max-width: 100%;
 }

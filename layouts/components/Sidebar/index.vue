@@ -1,6 +1,11 @@
 <template>
-  <div class="sidebar-wrap" :style="sidebarWidth">
-      sidebar
+  <div class="sidebar-wrap">
+      <div class="logo">Logo</div>
+    <div class="nav_wrap">
+      <div class="nav-item" v-for="(item, index) in links" :key="index">
+        <font-awesome-icon :icon="item.icon" class="icon" /> <nuxt-link class="nav-link" :to="item.to"> {{ item.title }} </nuxt-link>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -9,34 +14,62 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'Sidebar',
-  computed: {
-    ...mapGetters(['openAdminSidebar']),
-    sidebarWidth: function() {
-      let width = 256
-      if(!this.openAdminSidebar) {
-        width = 60
-      }
-      return {
-        '--sidebar-width': width + 'px'
-      }
+  data() {
+    return {
+      links: [
+        {
+          icon: 'chart-bar',
+          title: 'Tổng quan',
+          to: '/admin/1/dashboard'
+        },
+        {
+          icon: 'user',
+          title: 'Khách hàng',
+          to: '/test'
+        },
+        {
+          icon: 'tools',
+          title: 'Công cụ',
+          to: '/test'
+        },
+        {
+          icon: 'cog',
+          title: 'Cấu hình',
+          to: '/test'
+        },
+        {
+          icon: 'life-ring',
+          title: 'Hỗ trợ',
+          to: '/test'
+        }
+      ]
     }
+  },
+  computed: {
+    ...mapGetters(['openAdminSidebar'])
   }
 }
 </script>
 
 <style scoped lang="scss">
-.sidebar-wrap{
-  height: 100vh;
-  top: 0px;
-  transition: all ease .3s;
-  width: var(--sidebar-width);
-  background: #3b8070;
-  //transform: translateX(0)
-}
-
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+  .logo{
+    padding: 21px 15px;
+    background: #233245;
+    color: #fff;
+    font-weight: bold;
   }
-}
+
+  .nav-item{
+    padding: 15px;
+    font-weight: bold;
+    .nav-link{
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .icon{
+      color: #fff;
+      margin-right: 5px;
+    }
+  }
 </style>
