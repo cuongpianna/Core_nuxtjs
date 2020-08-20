@@ -1,11 +1,10 @@
 <template>
-  <div>Dashboard</div>
+
 </template>
 
 <script>
 export default {
-  middleware: 'admin',
-  layout: 'admin'
+  name: "CategoryIndex"
 }
 </script>
 
