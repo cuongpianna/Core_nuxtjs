@@ -11,38 +11,13 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { toolRouter } from "@/constant/route";
 
 export default {
   name: 'Sidebar',
   data() {
     return {
-      links: [
-        {
-          icon: 'chart-bar',
-          title: 'Tổng quan',
-          to: '/admin/1/dashboard'
-        },
-        {
-          icon: 'user',
-          title: 'Khách hàng',
-          to: '/test'
-        },
-        {
-          icon: 'tools',
-          title: 'Công cụ',
-          to: '/test'
-        },
-        {
-          icon: 'cog',
-          title: 'Cấu hình',
-          to: '/test'
-        },
-        {
-          icon: 'life-ring',
-          title: 'Hỗ trợ',
-          to: '/test'
-        }
-      ]
+      links: toolRouter
     }
   },
   computed: {
@@ -60,8 +35,9 @@ export default {
   }
 
   .nav-item{
-    padding: 15px;
+    padding: 15px 10px 15px 20px;
     font-weight: bold;
+    border-bottom: 1px solid #3c506a;
     .nav-link{
       color: #fff;
       text-decoration: none;

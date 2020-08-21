@@ -24,7 +24,7 @@ export default {
   computed: {
     ...mapGetters(['device', 'adminSidebar']),
     sidebarWidth: function() {
-      let width = 256
+      let width = 210
       let leftPosition = 0
       let durationTime = 0
 
@@ -47,7 +47,7 @@ export default {
       }
     },
     mainStyle: function () {
-      let width = 256
+      let width = 210
       if(this.adminSidebar.isMini) {
         width = 60
       }

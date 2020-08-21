@@ -20,7 +20,7 @@ export default {
 
 <style scoped lang="scss">
 .admin-header {
-  height: 64px;
+  height: 62px;
   margin-top: 0px;
   transform: translateY(0px);
   left: 256px;
