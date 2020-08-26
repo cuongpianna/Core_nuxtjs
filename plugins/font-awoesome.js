@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faChartBar } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faTools, faLifeRing, faCog, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faTools, faLifeRing, faCog, faPlus, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { faCommentAlt, faSave } from '@fortawesome/free-regular-svg-icons'
 import { faFacebookMessenger } from '@fortawesome/free-brands-svg-icons'
 
@@ -18,3 +18,4 @@ library.add(faPlus)
 library.add(faCommentAlt)
 library.add(faFacebookMessenger)
 library.add(faSave)
+library.add(faAngleDown)

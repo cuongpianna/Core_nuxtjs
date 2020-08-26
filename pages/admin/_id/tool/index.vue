@@ -25,7 +25,7 @@ import ToolList from "@/components/Tools/ToolList";
 export default {
   name: 'ToolPage',
   components: {ToolList},
-  middleware: 'admin',
+  // middleware: 'admin',
   layout: 'admin',
   transition: 'bounce'
 }

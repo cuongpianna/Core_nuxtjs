@@ -5,7 +5,7 @@
 <script>
 export default {
   name: "AccountDashboard",
-  middleware: 'admin',
+  // middleware: 'admin',
   layout: 'admin',
   transition: 'bounce',
   head() {

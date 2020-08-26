@@ -3,7 +3,7 @@
       <div class="logo">Logo</div>
     <div class="nav_wrap">
       <div class="nav-item" v-for="(item, index) in links" :key="index">
-        <font-awesome-icon :icon="item.icon" class="icon" /> <nuxt-link class="nav-link" :to="item.to"> {{ item.title }} </nuxt-link>
+        <font-awesome-icon :icon="item.icon" class="icon" /> <nuxt-link class="nav-link" :to="{name: item.name}"> {{ item.title }} </nuxt-link>
       </div>
     </div>
   </div>

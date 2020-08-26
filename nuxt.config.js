@@ -1,4 +1,5 @@
-
+import path from 'path'
+import fs from 'fs'
 export default {
   /*
   ** Nuxt rendering mode
@@ -37,7 +38,7 @@ export default {
   */
   plugins: [
     '~/plugins/router',
-    '~/plugins/axios',
+    // '~/plugins/axios',
     '~/plugins/material',
     '~/plugins/font-awoesome',
   ],
@@ -58,6 +59,9 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios"
   ],
+  // axios: {
+  //   baseURL: 'http://localhost:57947',
+  // },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
@@ -69,6 +73,10 @@ export default {
     height: '5px'
   },
   server: {
-    port: 9000
+    port: 9000,
+    https: {
+      key: fs.readFileSync(path.resolve(__dirname, 'RootCA.key')),
+      cert: fs.readFileSync(path.resolve(__dirname, 'RootCA.pem'))
+    }
   }
 }

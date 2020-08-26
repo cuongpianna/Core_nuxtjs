@@ -1,5 +1,5 @@
 const cookieparser = process.server ? require("cookieparser") : undefined;
-import { setToken } from '../utils/auth'
+import { setToken, setAccessToken, setFacebookId } from '../utils/auth'
 
 export const mutations = {
   setToken(state, token) {
@@ -18,6 +18,14 @@ export const mutations = {
   },
   openAdminSidebar: (state) => {
     state.adminSidebar.opened = true
+  },
+  setAccessToken(state, token) {
+    state.accessToken = token
+    setAccessToken(token)
+  },
+  setFacebookId(state, fbId) {
+    state.fb_id = fbId
+    setFacebookId(fbId)
   }
 }
 
@@ -28,7 +36,10 @@ export const actions = {
       const parsed = cookieparser.parse(req.headers.cookie)
       const cookie = JSON.parse(JSON.stringify((parsed)))
       const token = cookie.token
+      const { fb_id, access_token } = cookie
       commit("setToken", token)
+      commit('setAccessToken', access_token)
+      commit('setFacebookId', fb_id)
     }
   },
 
@@ -47,7 +58,9 @@ export const state = () => ({
     isMini: false,
     animation: true
   },
-  device: ''
+  device: '',
+  accessToken: '',
+  fb_id: ''
 })
 
 export const getters = {
