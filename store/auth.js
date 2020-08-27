@@ -9,6 +9,10 @@ export const mutations = {
     var pageSelected = JSON.parse(JSON.stringify(state.facebookPages[0]))
     pageSelected.picture_url = pageSelected.picture.data.url
     state.selectPage = pageSelected
+
+    state.firstName = userInfo.firstName
+    state.lastName = userInfo.lastName
+    state.user_picture = userInfo.pictureUrl
   }
 }
 
@@ -27,9 +31,14 @@ export const actions = {
 export const state = () => ({
   facebookId: '',
   facebookPages: [],
-  selectPage: {}
+  selectPage: {},
+  firstName: '',
+  lastName: '',
+  user_picture: ''
 })
 
 export const getters = {
-  selectPage: state => state.selectPage
+  selectPage: state => state.selectPage,
+  fullName: state => state.lastName + ' ' + state.firstName,
+  user_picture: state => state.user_picture
 }
