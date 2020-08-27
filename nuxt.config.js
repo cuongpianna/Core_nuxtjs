@@ -1,20 +1,9 @@
 import path from 'path'
 import fs from 'fs'
+
 export default {
-  /*
-  ** Nuxt rendering mode
-  ** See https://nuxtjs.org/api/configuration-mode
-  */
   mode: 'universal',
-  /*
-  ** Nuxt target
-  ** See https://nuxtjs.org/api/configuration-target
-  */
   target: 'server',
-  /*
-  ** Headers of the page
-  ** See https://nuxtjs.org/api/configuration-head
-  */
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -26,35 +15,25 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  /*
-  ** Global CSS
-  */
   css: [
-    '~/assets/main.css'
+    '~/assets/main.css',
+    '~/assets/styles/app.scss'
   ],
-  /*
-  ** Plugins to load before mounting the App
-  ** https://nuxtjs.org/guide/plugins
-  */
+  styleResources: {
+    scss: [
+      '~/assets/styles/app.scss'
+    ]
+  },
   plugins: [
     '~/plugins/router',
     // '~/plugins/axios',
     '~/plugins/material',
     '~/plugins/font-awoesome',
+    '~/plugins/i18n.js'
   ],
-  /*
-  ** Auto import components
-  ** See https://nuxtjs.org/api/configuration-components
-  */
   components: true,
-  /*
-  ** Nuxt.js dev-modules
-  */
   buildModules: [
   ],
-  /*
-  ** Nuxt.js modules
-  */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios"
@@ -69,8 +48,8 @@ export default {
   build: {
   },
   loading: {
-    color: 'blue',
-    height: '5px'
+    color: '#63b814',
+    height: '3px'
   },
   server: {
     port: 9000,
