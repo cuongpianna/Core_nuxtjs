@@ -1,12 +1,12 @@
 <template>
   <div class="tool-wrap">
     <div class="row">
-      <nuxt-link to="/admin/1/tool/create" class="btn-addTool"><font-awesome-icon icon="plus" class="icon"/> Công cụ mới</nuxt-link>
+      <nuxt-link to="tools/create" class="btn-addTool"><font-awesome-icon icon="plus" class="icon"/> {{ $t('common.addTool') }}</nuxt-link>
     </div>
     <div class="tool-list__wrap">
       <table>
         <thead class="thead">
-          <tr>
+        <tr>
           <th class="th-name">Tên</th>
           <th>Đã gửi</th>
           <th>Tin nhắn Opt-in</th>
@@ -23,7 +23,7 @@
 import ToolList from "@/components/Tools/ToolList";
 
 export default {
-  name: 'ToolPage',
+  name: 'ToolIndex',
   components: {ToolList},
   // middleware: 'admin',
   layout: 'admin',
