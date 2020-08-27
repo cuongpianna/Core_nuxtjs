@@ -1,7 +1,7 @@
 <template>
   <div class="admin-header">
 <!--    <button @click="miniSideBar">Mini</button>-->
-    <div class="left-content">{{crumbs}}</div>
+    <div class="left-content"><span class="app-title">{{ appTitle }}</span></div>
     <div class="right-content">
       <menu-header/>
     </div>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 import MenuHeader from "@/layouts/components/AdminHeader/menuheader";
 
 export default {
@@ -18,39 +18,7 @@ export default {
     MenuHeader
   },
   computed: {
-    crumbs() {
-      const crumbs = []
-      this.$route.matched.map((item, i, { length }) => {
-        const crumb = {}
-        crumb.path = item.path
-        // console.log(crumb.path)
-      })
-      // this.$route.matched.map((item, i, {length}) => {
-      //   const crumb = {}
-      //   crumb.path = item.path
-      //   crumb.name = this.$i18n.t('route.' + (item.name || item.path))
-      //
-      //   // is last item?
-      //   if (i === length - 1) {
-      //     // is param route? .../.../:id
-      //     if (item.regex.keys.length > 0) {
-      //       crumbs.push({
-      //         path: item.path.replace(/\/:[^/:]*$/, ''),
-      //         name: this.$i18n.t('route.' + item.name.replace(/-[^-]*$/, ''))
-      //       })
-      //       crumb.path = this.$route.path
-      //       crumb.name = this.$i18n.t('route.' + this.$route.name, [
-      //         crumb.path.match(/[^/]*$/)[0]
-      //       ])
-      //     }
-      //     crumb.classes = 'is-active'
-      //   }
-      //
-      //   crumbs.push(crumb)
-      // })
-
-      return crumbs
-    }
+    ...mapGetters(['appTitle'])
   },
   mounted() {
 
@@ -77,5 +45,12 @@ export default {
   max-width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  .app-title{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+  }
 }
 </style>

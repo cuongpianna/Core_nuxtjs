@@ -1,23 +1,30 @@
 <template>
   <div class="menu-header">
-    <div class="page-image">
-      <img :src="selectPage.picture_url" alt="">
-    </div>
-    <div class="page-title">
-      {{selectPage.name}}
+      <div class="page-info__wrap">
+        <div class="page-image">
+          <img :src="user_picture" alt="">
+        </div>
+        <div class="page-title">
+          {{ fullName }}
 
-      <font-awesome-icon class="icon" icon="angle-down"/>
-    </div>
+          <font-awesome-icon class="icon" icon="angle-down"/>
+        </div>
 
-    <div class="page-info"></div>
+        <div class="page-info"></div>
+      </div>
+      <switch-language />
   </div>
 </template>
 
 <script>
-import { mapState, mapActions, mapGetters } from 'vuex'
+import { mapState, mapActions, mapGetters, mapMutations } from 'vuex'
+import SwitchLanguage from './switch-language'
 
 export default {
   name: 'MenuHeader',
+  components: {
+    SwitchLanguage
+  },
   data() {
     return {
       picture_url: ''
@@ -30,7 +37,9 @@ export default {
       fb_id: 'fb_id'
     }),
     ...mapGetters({
-      selectPage: 'auth/selectPage'
+      selectPage: 'auth/selectPage',
+      fullName: 'auth/fullName',
+      user_picture: 'auth/user_picture'
     })
   },
   mounted() {
@@ -39,6 +48,9 @@ export default {
   methods: {
     ...mapActions({
       actGetUserInfo: 'auth/getUserInfo'
+    }),
+    ...mapMutations({
+      changeLanguage: "locale/SET_LANG"
     }),
     getUserInfo() {
       this.actGetUserInfo({
@@ -80,5 +92,11 @@ export default {
         margin-top: 4px;
       }
     }
+  }
+
+  .page-info__wrap{
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
   }
 </style>
