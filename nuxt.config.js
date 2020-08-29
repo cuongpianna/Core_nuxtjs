@@ -15,6 +15,9 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  script: [
+    { src: '~/assets/scripts/fb-sdk.js' }
+  ],
   css: [
     '~/assets/main.css',
     '~/assets/styles/app.scss'
