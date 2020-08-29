@@ -1,0 +1,16 @@
+{
+  "common": {
+    "addTool": "Add tool"
+  },
+  "language": {
+    "vi": "Vietnamese",
+    "en": "English"
+  },
+  "navbar": {
+    "tool": "Facebook Tools",
+    "campaign": "Campaigns"
+  },
+  "fb": {
+    "pageList": "Page lists"
+  }
+}
