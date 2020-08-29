@@ -11,6 +11,7 @@ import PageList from '@/components/pages/page-list'
 export default {
   name: "FacebookPages",
   layout: 'admin',
+  middleware: 'admin',
   components: {
     PageList
   }

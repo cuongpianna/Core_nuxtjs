@@ -23,6 +23,7 @@ const LABEL = {
 export default {
   name: 'dashboard',
   layout: 'admin',
+  middleware: 'admin',
   computed: {
     ...mapGetters({
       selectPage: 'auth/selectPage'
