@@ -27,7 +27,7 @@ export default {
   components: {ToolList},
   // middleware: 'admin',
   layout: 'admin',
-  transition: 'bounce'
+  // transition: 'bounce'
 }
 </script>
 

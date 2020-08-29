@@ -34,9 +34,9 @@ export default {
     window.fbAsyncInit = function() {
       FB.init({
         appId: '347903993037355',
-        cookie: true,
+        autoLogAppEvents : true,
         xfbml: true,
-        version: 'v2.8'
+        version: 'v8.0'
       })
       FB.AppEvents.logPageView()
       // Get FB Login Status
@@ -66,9 +66,12 @@ export default {
       FB.login(function (response) {
         vm.statusChangeCallback(response)
       }, {
-        scope: 'email, public_profile',
+        scope: 'email, public_profile, pages_messaging, pages_show_list, pages_read_user_content, pages_read_engagement, pages_manage_posts, pages_manage_metadata, pages_manage_engagement, pages_manage_instant_articles, pages_manage_cta',
         return_scopes: true
-      })
+      }),
+        {
+          auth_type: 'reauthorize'
+        }
     },
     getProfile (accessToken, userId) {
       Cookie.set('access_token', accessToken)
@@ -77,8 +80,7 @@ export default {
       FB.api('/me?fields=name,id,email,picture,first_name,last_name,gender,locale,birthday,link', function (response) {
         response.accessToken = accessToken
         vm.actFacebookLogin(response).then(() => {
-          const page = vm.$store.state.auth.selectPage
-          const url = `admin/${page.id}/dashboard`
+          const url = `dashboard`
           vm.$router.push(url)
         })
       })

@@ -11,7 +11,16 @@
         <font-awesome-icon :icon="['far', 'chart-bar']" class="icon"/> <nuxt-link class="nav-link" to="/fb/dashboard"> Dashboard </nuxt-link>
       </div>
       <div class="nav-item">
-        <font-awesome-icon icon="rocket" class="icon"/> <nuxt-link class="nav-link" to="/fb/tools"> Công cụ </nuxt-link>
+        <font-awesome-icon icon="rocket" class="icon"/> <nuxt-link class="nav-link" to="/fb/tools"> {{ $t('navbar.tool') }} </nuxt-link>
+      </div>
+      <div class="nav-item">
+        <font-awesome-icon icon="pager" class="icon"/> <nuxt-link class="nav-link" to="/fb/tools">Templates</nuxt-link>
+      </div>
+      <div class="nav-item">
+        <font-awesome-icon :icon="['far', 'sticky-note']" class="icon"/> <nuxt-link class="nav-link" to="/fb/pages">Facebook pages</nuxt-link>
+      </div>
+      <div class="nav-item">
+        <font-awesome-icon icon="tasks" class="icon"/> <nuxt-link class="nav-link" to="/fb/tools">{{ $t('navbar.campaign') }}</nuxt-link>
       </div>
     </div>
   </div>
