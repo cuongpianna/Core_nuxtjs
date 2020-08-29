@@ -15,9 +15,6 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  script: [
-    { src: '~/assets/scripts/fb-sdk.js' }
-  ],
   css: [
     '~/assets/main.css',
     '~/assets/styles/app.scss'
@@ -32,7 +29,8 @@ export default {
     // '~/plugins/axios',
     '~/plugins/material',
     '~/plugins/font-awoesome',
-    '~/plugins/i18n.js'
+    '~/plugins/i18n.js',
+    // '~/plugins/fb-sdk.js'
   ],
   components: true,
   buildModules: [
