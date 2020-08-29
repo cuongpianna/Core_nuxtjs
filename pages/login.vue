@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 const Cookie = process.client ? require("js-cookie") : undefined
 
 export default {
@@ -51,6 +51,9 @@ export default {
       actLogin: 'login',
       actFacebookLogin: 'auth/facebookLogin'
     }),
+    ...mapMutations([
+      'setAccessToken', 'setFacebookId'
+    ]),
     onLogin() {
       const nextUrl = this.$route.query.next
        this.actLogin({username: this.user.username, password: this.user.password})
@@ -74,6 +77,8 @@ export default {
         }
     },
     getProfile (accessToken, userId) {
+      this.setAccessToken(accessToken)
+      this.setFacebookId(userId)
       Cookie.set('access_token', accessToken)
       Cookie.set('fb_id', userId)
       let vm = this
