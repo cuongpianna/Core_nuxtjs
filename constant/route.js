@@ -5,7 +5,7 @@ export const toolRouter = [
     to: 'dashboard',
     name: 'dashboard',
     meta: {
-      title: 'Cuongf'
+      title: 'Cuong'
     }
   }
 ]
