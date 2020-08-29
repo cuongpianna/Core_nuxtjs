@@ -2,33 +2,40 @@
   <div class="fb-dashboard">
     <div class="fb-page card">
       <div class="fb-image">
-        <img :src="selectPage.picture_url" alt="">
+        <img :src="selectedPage.picture_url" alt="">
       </div>
       <div class="fb-content">
-        <h3 class="fb-title">{{ selectPage.name }}</h3>
-        <h4>PageId: {{ selectPage.id }}</h4>
-        <a :href="selectPage.link" target="_blank">{{ selectPage.link }}</a>
+        <h3 class="fb-title">{{ selectedPage.name }}</h3>
+        <h4>PageId: {{ selectedPage.id }}</h4>
+        <a :href="selectedPage.link" target="_blank">{{ selectedPage.link }}</a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
+import { commonMixin } from '@/mixin/common'
 
 const LABEL = {
   module: 'facebook'
 }
 
 export default {
-  name: 'dashboard',
+  name: 'FacebookDashboard',
   layout: 'admin',
   middleware: 'admin',
+  head() {
+    return {
+      title: this.$t('meta.fbDashboard')
+    }
+  },
   computed: {
     ...mapGetters({
-      selectPage: 'auth/selectPage'
+      selectedPage: 'auth/selectPage'
     })
   },
+  mixins: [commonMixin],
   created() {
     this.setSelectModule(LABEL.module)
   },

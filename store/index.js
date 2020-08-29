@@ -1,5 +1,7 @@
 const cookieparser = process.server ? require("cookieparser") : undefined;
-import { setToken, setAccessToken, setFacebookId } from '../utils/auth'
+import {setToken, setAccessToken, setFacebookId} from '../utils/auth'
+
+const GET_USER_INFO_PATH = 'http://localhost:57947/api/User/getUserInfo'
 
 export const mutations = {
   setToken(state, token) {
@@ -32,25 +34,45 @@ export const mutations = {
   },
   setSelectModule(state, module) {
     state.module = module
+  },
+  setUserProfile: (state, userInfo) => {
+    state.auth.facebookPages = userInfo.facebookPages
+    var pageSelected = JSON.parse(JSON.stringify(state.auth.facebookPages[0]))
+    pageSelected.picture_url = pageSelected.picture.data.url
+    state.auth.selectPage = pageSelected
+
+    state.auth.firstName = userInfo.firstName
+    state.auth.lastName = userInfo.lastName
+    state.auth.user_picture = userInfo.pictureUrl
   }
 }
 
 export const actions = {
-  nuxtServerInit({ commit }, { req }) {
+  async nuxtServerInit({state, commit}, {req}) {
     let token = null
     if (req.headers.cookie) {
       const parsed = cookieparser.parse(req.headers.cookie)
       const cookie = JSON.parse(JSON.stringify((parsed)))
       const token = cookie.token
-      const { fb_id, access_token } = cookie
+      const {fb_id, access_token} = cookie
       commit("setToken", token)
       commit('setAccessToken', access_token)
       commit('setFacebookId', fb_id)
+
+      try {
+        const result = await this.$axios.$post(GET_USER_INFO_PATH, {
+          AccessToken: access_token,
+          Id: fb_id
+        })
+        commit('setUserProfile', result)
+      } catch (e) {
+        console.log(e)
+      }
     }
   },
 
-  login({ commit }, userInfo) {
-    if(userInfo.username === 'admin' && userInfo.password === '123456') {
+  login({commit}, userInfo) {
+    if (userInfo.username === 'admin' && userInfo.password === '123456') {
       commit('setToken', 'admin')
     }
   }

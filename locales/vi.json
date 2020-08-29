@@ -12,5 +12,9 @@
   },
   "fb": {
     "pageList": "Danh sách pages"
+  },
+  "meta": {
+    "moduleList": "Danh sách modules",
+    "fbDashboard": "Tổng quan"
   }
 }

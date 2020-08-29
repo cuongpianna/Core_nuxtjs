@@ -3,7 +3,7 @@
     <h1>Login</h1>
     <div class="login-form">
       <input type="text" v-model="user.username" placeholder="Tài khoản">
-      <input v-on:keyup.enter="onLogin" type="text" v-model="user.password" placeholder="Mật khẩu">
+      <input v-on:keyup.enter="onLoginFacebook" type="text" v-model="user.password" placeholder="Mật khẩu">
       <button @click="onLogin">Đăng nhập</button>
       <button @click="onLoginFacebook">Đăng nhập fb</button>
       <button @click="ss">Get Permission</button>

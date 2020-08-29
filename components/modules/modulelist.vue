@@ -1,7 +1,7 @@
 <template>
   <div class="module-list__container">
     <h4>Ứng dụng</h4>
-    <module-item class="item" v-for="(item, index) in modules" :key="index" :module-item="item"/>
+    <module-item class="item" v-for="(item, index) in moduleList" :key="index" :module-item="item"/>
   </div>
 </template>
 
@@ -42,22 +42,6 @@ export default {
     ...mapGetters({
       selectPage: 'auth/selectPage'
     })
-  },
-  mounted() {
-    this.modules = [
-      {
-        name: 'Facebook Marketing',
-        icon: ['fab', 'facebook'],
-        to: `/fb/dashboard`,
-        color: '#267cde'
-      },
-      {
-        name: 'Store',
-        icon: 'store-alt',
-        to: '',
-        color: '#dbaa07'
-      }
-    ]
   }
 }
 </script>

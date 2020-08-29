@@ -12,5 +12,9 @@
   },
   "fb": {
     "pageList": "Page lists"
+  },
+  "meta": {
+    "moduleList": "Module List",
+    "fbDashboard": "Dashboard"
   }
 }

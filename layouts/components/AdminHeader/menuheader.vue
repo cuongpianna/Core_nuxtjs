@@ -42,7 +42,7 @@ export default {
       user_picture: 'auth/user_picture'
     })
   },
-  mounted() {
+  created() {
     this.getUserInfo()
   },
   methods: {

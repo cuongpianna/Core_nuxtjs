@@ -1,11 +1,11 @@
 <template>
   <div class="dashboard-wrap">
-    <modulelist/>
+    <modulelist :moduleList="modules"/>
   </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 import ModuleList from "@/components/modules/modulelist"
 
 export default {
@@ -14,10 +14,34 @@ export default {
   components: {
     ModuleList
   },
+  head() {
+    return {
+      title: this.$t('meta.moduleList')
+    }
+  },
   data(){
     return {
-      pageName: 'Dashboard'
+      pageName: 'Dashboard',
+      modules: [
+        {
+          name: 'Facebook Marketing',
+          icon: ['fab', 'facebook'],
+          to: `/fb/dashboard`,
+          color: '#267cde'
+        },
+        {
+          name: 'Store',
+          icon: 'store-alt',
+          to: '',
+          color: '#dbaa07'
+        }
+      ]
     }
+  },
+  computed: {
+    ...mapGetters({
+      locale: 'locale/locale'
+    })
   },
   mounted() {
     this.onSetAppTitle()

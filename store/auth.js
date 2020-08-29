@@ -19,7 +19,6 @@ export const mutations = {
 export const actions = {
   async facebookLogin({ commit }, userInfo) {
       const data = await this.$axios.$post(CREATE_OAUTH_PATH, userInfo)
-      console.log(data)
       commit('setUserProfile', data)
   },
 

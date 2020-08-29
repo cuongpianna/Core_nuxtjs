@@ -52,6 +52,11 @@ export default {
     color: '#63b814',
     height: '3px'
   },
+  loadingIndicator: {
+    name: 'circle',
+    color: '#3B8070',
+    background: 'white'
+  },
   server: {
     port: 9000,
     https: {
