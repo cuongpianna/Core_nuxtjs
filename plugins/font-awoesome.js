@@ -1,11 +1,10 @@
 import Vue from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faChartBar } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faTools, faLifeRing, faCog, faPlus } from '@fortawesome/free-solid-svg-icons'
-import { faCommentAlt, faSave } from '@fortawesome/free-regular-svg-icons'
-import { faFacebookMessenger } from '@fortawesome/free-brands-svg-icons'
+import { faTools, faLifeRing, faCog, faPlus, faAngleDown, faStoreAlt, faRocket, faPager, faTasks } from '@fortawesome/free-solid-svg-icons'
+import { faCommentAlt, faSave, faChartBar, faStickyNote } from '@fortawesome/free-regular-svg-icons'
+import { faFacebookMessenger, faFacebook } from '@fortawesome/free-brands-svg-icons'
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
@@ -18,3 +17,10 @@ library.add(faPlus)
 library.add(faCommentAlt)
 library.add(faFacebookMessenger)
 library.add(faSave)
+library.add(faAngleDown)
+library.add(faFacebook)
+library.add(faStoreAlt)
+library.add(faRocket)
+library.add(faPager)
+library.add(faStickyNote)
+library.add(faTasks)

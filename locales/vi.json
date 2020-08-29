@@ -1,0 +1,16 @@
+{
+  "common": {
+    "addTool": "Công cụ mới"
+  },
+  "language": {
+    "vi": "Tiếng Việt",
+    "en": "Tiếng Anh"
+  },
+  "navbar": {
+    "tool": "Công cụ",
+    "campaign": "Chiến dịch"
+  },
+  "fb": {
+    "pageList": "Danh sách pages"
+  }
+}

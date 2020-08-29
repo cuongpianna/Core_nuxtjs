@@ -7,9 +7,10 @@ export default ({
   res,
   route
 }) => {
-  const { token } = store.state
+  const { fb_id } = store.state
+  console.log(fb_id)
   // var token = getToken()
-  if (!token) {
+  if (fb_id === '') {
     redirect('/login', { next: route.fullPath })
   }
 }
