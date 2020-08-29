@@ -31,7 +31,6 @@
 <script>
 
 export default {
-  layout: 'admin',
   head: {
     title: 'Home page',
     meta: [
