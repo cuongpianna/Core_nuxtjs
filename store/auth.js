@@ -23,8 +23,12 @@ export const actions = {
   },
 
   async getUserInfo({ commit }, data) {
-    const result = await this.$axios.$post(GET_USER_INFO_PATH, data)
-    commit('setUserProfile', result)
+    try{
+      const result = await this.$axios.$post(GET_USER_INFO_PATH, data)
+      commit('setUserProfile', result)
+    }catch (e) {
+      console.log(e)
+    }
   }
 }
 
