@@ -25,12 +25,7 @@ export default {
     ]
   },
   plugins: [
-    '~/plugins/router',
-    // '~/plugins/axios',
-    '~/plugins/material',
-    '~/plugins/font-awoesome',
-    '~/plugins/i18n.js',
-    // '~/plugins/fb-sdk.js'
+    '~/plugins/index'
   ],
   components: true,
   buildModules: [
