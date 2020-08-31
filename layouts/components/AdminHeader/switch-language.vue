@@ -1,5 +1,5 @@
 <template>
-  <div class="lang">
+  <div class="lang" v-click-outside="hideComponent">
     <div class="lang-inner" @click="toggleSwitch">
       <img src="~/assets/images/vi.png" v-if="language === 'vi'">
       <img src="~/assets/images/en.png" v-else>
@@ -47,6 +47,9 @@ export default {
       this.changeLanguage(lang)
       this.$i18n.locale = lang
       this.isShowSwitch = false
+    },
+    hideComponent() {
+      this.isShowSwitch = false
     }
   }
 }
@@ -70,6 +73,7 @@ export default {
      }
 
      ul{
+       border-radius: 3px;
        padding: 0;
        list-style-type: none;
        background: #fff;
@@ -97,10 +101,10 @@ export default {
  }
 
  .slide-enter-active {
-   -moz-transition-duration: 0.3s;
-   -webkit-transition-duration: 0.3s;
-   -o-transition-duration: 0.3s;
-   transition-duration: 0.3s;
+   -moz-transition-duration: 0.2s;
+   -webkit-transition-duration: 0.2s;
+   -o-transition-duration: 0.2s;
+   transition-duration: 0.2s;
    -moz-transition-timing-function: ease-in;
    -webkit-transition-timing-function: ease-in;
    -o-transition-timing-function: ease-in;
@@ -108,10 +112,10 @@ export default {
  }
 
  .slide-leave-active {
-   -moz-transition-duration: 0.3s;
-   -webkit-transition-duration: 0.3s;
-   -o-transition-duration: 0.3s;
-   transition-duration: 0.3s;
+   -moz-transition-duration: 0.2s;
+   -webkit-transition-duration: 0.2s;
+   -o-transition-duration: 0.2s;
+   transition-duration: 0.2s;
    -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
    -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
    -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
