@@ -30,7 +30,7 @@ export default {
     '~/plugins/material',
     '~/plugins/font-awoesome',
     '~/plugins/i18n.js',
-    // '~/plugins/fb-sdk.js'
+    '~/plugins/directives.js'
   ],
   components: true,
   buildModules: [
